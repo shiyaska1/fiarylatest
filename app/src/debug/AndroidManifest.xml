@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug/APK-only overlay. Background voice recording needs a microphone foreground service,
+  which the release (Play) AAB deliberately does not ship. These declarations apply only to
+  the WhatsApp APK (assembleDebug); bundleRelease never sees them.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+    <!-- Bulk SMS via the phone SIM. APK build only — Google Play bans SEND_SMS for this kind of app,
+         so the release AAB never contains it (gateway sending is used there instead). -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application>
+        <service
+            android:name="com.billing.pos.audio.AudioRecordService"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <service
+            android:name="com.billing.pos.audio.AutoDiaryService"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+    </application>
+</manifest>

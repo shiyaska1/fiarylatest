@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Receipt shape -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,28 h32 v48 l-6,-4 -5,4 -5,-4 -5,4 -5,-4 -6,4 z" />
+    <path
+        android:fillColor="#00695C"
+        android:pathData="M44,40 h20 v3 h-20 z M44,48 h20 v3 h-20 z M44,56 h13 v3 h-13 z" />
+</vector>

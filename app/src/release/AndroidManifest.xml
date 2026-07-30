@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Release/AAB-only overlay. WorkManager (transitive via ML Kit) injects the FOREGROUND_SERVICE
+  permission; the Play build uses no foreground service, so strip it here to avoid Play demanding
+  a Foreground Service declaration. The debug/APK build keeps it (see src/debug) for background
+  voice recording.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:node="remove" />
+
+</manifest>
